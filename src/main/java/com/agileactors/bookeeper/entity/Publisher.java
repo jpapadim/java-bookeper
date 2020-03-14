@@ -72,4 +72,8 @@ public class Publisher {
     public Date getDate() {
         return date;
     }
+
+    public Publisher(Long id) {
+        this.id = id;
+    }
 }

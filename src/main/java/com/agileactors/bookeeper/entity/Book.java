@@ -6,9 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+
 @Entity
 @Table(name="book")
-public class Book implements com.agileactors.bookeeper.repository.BookRepository {
+public class Book {
 
     @Id
     @Column(nullable = false)
@@ -16,9 +17,9 @@ public class Book implements com.agileactors.bookeeper.repository.BookRepository
     @ApiModelProperty(hidden = true)
     private Long id;
 
-    @ManyToOne
+
     @JoinColumn(name = "publisher_id", nullable = false)
-    private Publisher publisher;
+    private Long publisher;
 
     private int code;
 
@@ -52,11 +53,11 @@ public class Book implements com.agileactors.bookeeper.repository.BookRepository
 
 
 
-    public Publisher getPublisher() {
+    public Long getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(Publisher publisher) {
+    public void setPublisher(Long publisher) {
         this.publisher = publisher;
     }
 
